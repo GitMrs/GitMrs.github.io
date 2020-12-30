@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/12/30/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>通过hexo-cli + gitPage 构件博客项目</title>
+    <url>/2020/12/16/hexo_blog/</url>
+    <content><![CDATA[<ol>
+<li><p>mkdir blog  建立一个文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir blog</span><br></pre></td></tr></table></figure></li>
+<li><p>npm install hexo-cli -g 全局安装hexo-cli</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd mkdir</span><br><span class="line">npm install hexo-cli -g </span><br></pre></td></tr></table></figure></li>
+<li><p>hexo init client 初始化一个hexo项目，项目名为client</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init client</span><br></pre></td></tr></table></figure></li>
+<li><p>hexo new 第一篇文章 编写一个文章，存在source_posts文件下，生成一个xxx.md</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new 第一篇文章 </span><br></pre></td></tr></table></figure></li>
+<li><p>source_posts文件就是博客的文章内容，自己可以创建，或者直接删除</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 文章格式</span><br><span class="line">---</span><br><span class="line">title: 第一篇文章 &#x2F;&#x2F; 标题</span><br><span class="line">date: 2020-12-16 11:45:45 &#x2F;&#x2F; 时间</span><br><span class="line">categories: &#x2F;&#x2F; 文件分类</span><br><span class="line">tags: &#x2F;&#x2F; 分类标签</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入<a href="https://hexo.io/themes/">hexo主题官网</a></p>
+</li>
+<li><p>选择喜欢主题</p>
+</li>
+<li><p>点击进入github里面</p>
+</li>
+<li><p>在自己的blog里面，git clone <a href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a>  themes/diaspora 执行该命令！（感谢，<a href="https://github.com/Fechin">Fechin</a>的无私开源）</p>
+</li>
+<li><p>这个主题的具体配置可参考<a href="https://github.com/Fechin/hexo-theme-diaspora">hexo-theme-diaspora</a></p>
+</li>
+</ol>
+<ol start="11">
+<li><p>首先在git上创建一个自己的仓库，仓库名称为GitMrs(自己的用户名).github.io；</p>
+</li>
+<li><p>进入到hexo的配置文件_config.yml配置git信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 找到这个配置</span><br><span class="line">deploy</span><br><span class="line">  type: &#39;git&#39; &#x2F;&#x2F; 类型</span><br><span class="line">  repo: git@github.com:GitMrs&#x2F;GitMrs.github.io.git &#x2F;&#x2F; 仓库地址</span><br><span class="line">  branch: master &#x2F;&#x2F; 分支</span><br></pre></td></tr></table></figure></li>
+<li><p>npm install hexo-deployer-git -s 安装hexo发布模块</p>
+</li>
+<li><p>hexo generate // 打包单页应用</p>
+</li>
+<li><p>执行 hexo deploy // 发布上线（一般两次发布时间需要间隔2分钟！否则会提示没有权限）</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>构建一个脚手架cli</title>
+    <url>/2020/12/30/%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%84%9A%E6%89%8B%E6%9E%B6cli/</url>
+    <content><![CDATA[<h1 id="构建一个脚手"><a href="#构建一个脚手" class="headerlink" title="构建一个脚手"></a>构建一个脚手</h1><p>  记录一下自己构建的一个脚手架cli的步骤，使用node的ssh自动拉取一下文件，并给与用户已反馈！</p>
+<h2 id="开始构件准备"><a href="#开始构件准备" class="headerlink" title="开始构件准备"></a>开始构件准备</h2><ol>
+<li><p>电脑需要有node</p>
+</li>
+<li><p>编辑器</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li><p>mkdir 创建一个文件夹 xxx-cli</p>
+</li>
+<li><p>cd 进入该文件</p>
+</li>
+<li><p>npm init -y 初始化一个项目</p>
+<p>  在package.json 添加入口文件</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">  &quot;xxx-cli&quot;: &quot;.&#x2F;bin&#x2F;index&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mdir bin 在根目录下创建一个bin目录,并创建index文件不要后缀名;并添加</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#指定脚本解释器为node</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env node</span><br><span class="line">console.log(&#39;cli.....&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>在终端执行，npm link;</p>
+<p> 就可以通过npm 建立一个link对于bin/index里面的文件；<br> 在终端输入xxx就可以打印里面的文件！</p>
+</li>
+<li><p>安装依赖</p>
+<ul>
+<li>commander // node命令行操作</li>
+<li>chakl // 打印彩色提示</li>
+<li>clear // 清除</li>
+<li>download-git-repo // 拉取git模板</li>
+<li>handlebars // 语义化模板</li>
+<li>inquirer // 终端交互</li>
+<li>open // 自动打开浏览器</li>
+<li>ora // 加载中</li>
+<li>figlet // 字体样式</li>
+</ul>
+</li>
+<li><p>打开bin/index 编写入口</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#指定脚本解释器为node</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env node</span><br><span class="line">const program &#x3D; require(&#39;commander&#39;); &#x2F;&#x2F; 引入node模板终端</span><br><span class="line">program.version(require(&#39;..&#x2F;package.json&#39;).version); &#x2F;&#x2F; 提示版本</span><br><span class="line">program.usage(&#39;&lt;command&gt; [option]&#39;) &#x2F;&#x2F; 命令提示</span><br><span class="line">  .command(&#39;create &lt;name&gt;&#39;) &#x2F;&#x2F; create &lt;xxx(为变量)&gt; </span><br><span class="line">  .description(&#39;create project&#39;) &#x2F;&#x2F; 描述</span><br><span class="line">  .action(require(&#39;.&#x2F;init.js&#39;)) &#x2F;&#x2F; 加载执行函数</span><br><span class="line">program.parse(process.argv); &#x2F;&#x2F; 传入参数</span><br></pre></td></tr></table></figure></li>
+<li><p>建立执行函数 init.js；</p>
+<p> 执行逻辑，先打印欢迎信息-在选择模板-下载模板</p>
+<ul>
+<li>打印欢迎页<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const &#123;promisify&#125; &#x3D; require(&#39;util&#39;) &#x2F;&#x2F; 引入异步函数</span><br><span class="line">const figlet &#x3D; promisify(require(&#39;figlet&#39;)) &#x2F;&#x2F; 打印欢迎页</span><br><span class="line">const clear &#x3D; require(&#39;clear&#39;) &#x2F;&#x2F; 清屏</span><br><span class="line">const chalk &#x3D; require(&#39;chalk&#39;) &#x2F;&#x2F; 粉笔</span><br><span class="line">const log &#x3D; content &#x3D;&gt; console.log(chalk.green(content))</span><br><span class="line">module.exports &#x3D; async name &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F; 打印欢迎画面</span><br><span class="line">  clear()</span><br><span class="line">  const data &#x3D; await figlet(&#39;XXX Welcome&#39;)</span><br><span class="line">  log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>选择模板这里使用<a href="https://www.npmjs.com/package/inquirer">inquirer</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 构件模板数据</span><br><span class="line"> const presetPrompt &#x3D; &#123; </span><br><span class="line">  name: &#39;preset&#39;, &#x2F;&#x2F; 名字</span><br><span class="line">  type: &#39;list&#39;, &#x2F;&#x2F; 类型</span><br><span class="line">  message: &#96;请选择你要获取的模板类型:&#96;, &#x2F;&#x2F; 描述信息</span><br><span class="line">  choices: [ &#x2F;&#x2F; 选择项</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;vue2.0+ele&#39;, &#x2F;&#x2F; 展示的名字</span><br><span class="line">      value: &#39;vue2.0&#39; &#x2F;&#x2F; 获取的值</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;vue3.0+and-vue&#39;,</span><br><span class="line">      value: &#39;vue3.0&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;react+and&#39;,</span><br><span class="line">      value: &#39;react&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">const answers &#x3D; await inquirer.prompt (presetPrompt) &#x2F;&#x2F; 将选择模板，对应到终端中</span><br><span class="line">&#x2F;&#x2F; answers.preset 就是模板里面的value</span><br><span class="line">log(&#96;创建$&#123;answers.preset&#125;项目：$&#123;name&#125;&#96;)</span><br><span class="line">&#x2F;&#x2F; 判断preset的值，对应获取下载文件地址</span><br><span class="line">let url &#x3D; &#39;&#39;;</span><br><span class="line">switch (answers.preset) &#123;</span><br><span class="line">  case &#39;vue2.0&#39;:</span><br><span class="line">    url &#x3D; &#39;xxx&#39;;</span><br><span class="line">    break;</span><br><span class="line">  case &#39;vue3.0&#39;:</span><br><span class="line">    url &#x3D; &#39;&#39;;</span><br><span class="line">    break;</span><br><span class="line">  case &#39;react&#39;:</span><br><span class="line">    url &#x3D; &#39;&#39;;</span><br><span class="line">    break;</span><br><span class="line">  default:</span><br><span class="line">    break;</span><br><span class="line">&#125;</span><br><span class="line">if (!url) &#123;</span><br><span class="line">  console.log(chalk.red(&#39;项目正在构件中。。。&#39;));</span><br><span class="line">  return false;</span><br><span class="line">&#125; </span><br><span class="line">&#x2F;&#x2F; 下载模板</span><br><span class="line">let isSuccess &#x3D; await clone(url, name)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>创建download.js,抛出clone方法,使用<a href="https://www.npmjs.com/package/download-git-repo">download-git-repo</a>拉取模板<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const &#123; promisify &#125; &#x3D; require(&#39;util&#39;); &#x2F;&#x2F; 引入异步</span><br><span class="line">module.exports.clone &#x3D; async function (repo, desc) &#123;</span><br><span class="line">  const download &#x3D; promisify(require(&#39;download-git-repo&#39;)); &#x2F;&#x2F; 异步使用download-git-repo</span><br><span class="line">  const ora &#x3D; require(&#39;ora&#39;); &#x2F;&#x2F; 打印下载进度</span><br><span class="line">  const process &#x3D; ora(&#96;下载中...&#96;);</span><br><span class="line">  process.start();</span><br><span class="line">  &#x2F;&#x2F; 容错处理</span><br><span class="line">  try &#123;</span><br><span class="line">    await download(repo, desc);</span><br><span class="line">    process.succeed(&#39;下载成功！&#39;);</span><br><span class="line">    return true;</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">    process.fail(&#39;下载失败！&#39;);</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>下载完成,打印提示信息<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (isSuccess) &#123;</span><br><span class="line">  log(chalk.green(&#96;</span><br><span class="line">    拉取完成：</span><br><span class="line">    To get Start：</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">      cd $&#123;name&#125;</span><br><span class="line">      npm install 或者 yarn add  下载依赖</span><br><span class="line">      npm run dev</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">      &#96;))</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        log(chalk.red(&#96;</span><br><span class="line">    拉取失败：</span><br><span class="line">    请检查网络或稍后再试</span><br><span class="line">      &#96;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>cli</category>
+      </categories>
+      <tags>
+        <tag>cli</tag>
+      </tags>
+  </entry>
+</search>
