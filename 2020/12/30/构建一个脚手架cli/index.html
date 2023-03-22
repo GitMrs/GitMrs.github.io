@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>构建一个脚手架cli - 无名草</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="构建一个脚手  记录一下自己构建的一个脚手架cli的步骤，使用node的ssh自动拉取一下文件，并给与用户已反馈！！！！
+开始构件准备
+电脑需要有node
+
+编辑器
+开始
+mkdir 创建一个文件夹,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="无名草" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="构建一个脚手架cli - 无名草"/>
+    <meta name="twitter:description" content="构建一个脚手  记录一下自己构建的一个脚手架cli的步骤，使用node的ssh自动拉取一下文件，并给与用户已反馈！！！！
+开始构件准备
+电脑需要有node
+
+编辑器
+开始
+mkdir 创建一个文件夹,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="无名草"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="构建一个脚手架cli - 无名草"/>
+    <meta property="og:description" content="构建一个脚手  记录一下自己构建的一个脚手架cli的步骤，使用node的ssh自动拉取一下文件，并给与用户已反馈！！！！
+开始构件准备
+电脑需要有node
+
+编辑器
+开始
+mkdir 创建一个文件夹,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">无名草</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://gitmrs.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">构建一个脚手架cli</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">构建一个脚手架cli</h1>
+        <div class="stuff">
+            <span>十二月 30, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cli/" rel="tag">cli</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="构建一个脚手"><a href="#构建一个脚手" class="headerlink" title="构建一个脚手"></a>构建一个脚手</h1><p>  记录一下自己构建的一个脚手架cli的步骤，使用node的ssh自动拉取一下文件，并给与用户已反馈！！！！</p>
+<h2 id="开始构件准备"><a href="#开始构件准备" class="headerlink" title="开始构件准备"></a>开始构件准备</h2><ol>
+<li><p>电脑需要有node</p>
+</li>
+<li><p>编辑器</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li><p>mkdir 创建一个文件夹 xxx-cli</p>
+</li>
+<li><p>cd 进入该文件</p>
+</li>
+<li><p>npm init -y 初始化一个项目</p>
+<p>  在package.json 添加入口文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">  &quot;xxx-cli&quot;: &quot;.&#x2F;bin&#x2F;index&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mdir bin 在根目录下创建一个bin目录,并创建index文件不要后缀名;并添加</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#指定脚本解释器为node</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env node</span><br><span class="line">console.log(&#39;cli.....&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>在终端执行，npm link;</p>
+<p> 就可以通过npm 建立一个link对于bin/index里面的文件；<br> 在终端输入xxx就可以打印里面的文件！</p>
+</li>
+<li><p>安装依赖</p>
+<ul>
+<li>commander // node命令行操作</li>
+<li>chakl // 打印彩色提示</li>
+<li>clear // 清除</li>
+<li>download-git-repo // 拉取git模板</li>
+<li>handlebars // 语义化模板</li>
+<li>inquirer // 终端交互</li>
+<li>open // 自动打开浏览器</li>
+<li>ora // 加载中</li>
+<li>figlet // 字体样式</li>
+</ul>
+</li>
+<li><p>打开bin/index 编写入口</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#指定脚本解释器为node</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env node</span><br><span class="line">const program &#x3D; require(&#39;commander&#39;); &#x2F;&#x2F; 引入node模板终端</span><br><span class="line">program.version(require(&#39;..&#x2F;package.json&#39;).version); &#x2F;&#x2F; 提示版本</span><br><span class="line">program.usage(&#39;&lt;command&gt; [option]&#39;) &#x2F;&#x2F; 命令提示</span><br><span class="line">  .command(&#39;create &lt;name&gt;&#39;) &#x2F;&#x2F; create &lt;xxx(为变量)&gt; </span><br><span class="line">  .description(&#39;create project&#39;) &#x2F;&#x2F; 描述</span><br><span class="line">  .action(require(&#39;.&#x2F;init.js&#39;)) &#x2F;&#x2F; 加载执行函数</span><br><span class="line">program.parse(process.argv); &#x2F;&#x2F; 传入参数</span><br></pre></td></tr></table></figure></li>
+<li><p>建立执行函数 init.js；</p>
+<p> 执行逻辑，先打印欢迎信息-在选择模板-下载模板</p>
+<ul>
+<li>打印欢迎页<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const &#123;promisify&#125; &#x3D; require(&#39;util&#39;) &#x2F;&#x2F; 引入异步函数</span><br><span class="line">const figlet &#x3D; promisify(require(&#39;figlet&#39;)) &#x2F;&#x2F; 打印欢迎页</span><br><span class="line">const clear &#x3D; require(&#39;clear&#39;) &#x2F;&#x2F; 清屏</span><br><span class="line">const chalk &#x3D; require(&#39;chalk&#39;) &#x2F;&#x2F; 粉笔</span><br><span class="line">const log &#x3D; content &#x3D;&gt; console.log(chalk.green(content))</span><br><span class="line">module.exports &#x3D; async name &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F; 打印欢迎画面</span><br><span class="line">  clear()</span><br><span class="line">  const data &#x3D; await figlet(&#39;XXX Welcome&#39;)</span><br><span class="line">  log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>选择模板这里使用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/inquirer">inquirer</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 构件模板数据</span><br><span class="line"> const presetPrompt &#x3D; &#123; </span><br><span class="line">  name: &#39;preset&#39;, &#x2F;&#x2F; 名字</span><br><span class="line">  type: &#39;list&#39;, &#x2F;&#x2F; 类型</span><br><span class="line">  message: &#96;请选择你要获取的模板类型:&#96;, &#x2F;&#x2F; 描述信息</span><br><span class="line">  choices: [ &#x2F;&#x2F; 选择项</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;vue2.0+ele&#39;, &#x2F;&#x2F; 展示的名字</span><br><span class="line">      value: &#39;vue2.0&#39; &#x2F;&#x2F; 获取的值</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;vue3.0+and-vue&#39;,</span><br><span class="line">      value: &#39;vue3.0&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;react+and&#39;,</span><br><span class="line">      value: &#39;react&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">const answers &#x3D; await inquirer.prompt (presetPrompt) &#x2F;&#x2F; 将选择模板，对应到终端中</span><br><span class="line">&#x2F;&#x2F; answers.preset 就是模板里面的value</span><br><span class="line">log(&#96;创建$&#123;answers.preset&#125;项目：$&#123;name&#125;&#96;)</span><br><span class="line">&#x2F;&#x2F; 判断preset的值，对应获取下载文件地址</span><br><span class="line">let url &#x3D; &#39;&#39;;</span><br><span class="line">switch (answers.preset) &#123;</span><br><span class="line">  case &#39;vue2.0&#39;:</span><br><span class="line">    url &#x3D; &#39;xxx&#39;;</span><br><span class="line">    break;</span><br><span class="line">  case &#39;vue3.0&#39;:</span><br><span class="line">    url &#x3D; &#39;&#39;;</span><br><span class="line">    break;</span><br><span class="line">  case &#39;react&#39;:</span><br><span class="line">    url &#x3D; &#39;&#39;;</span><br><span class="line">    break;</span><br><span class="line">  default:</span><br><span class="line">    break;</span><br><span class="line">&#125;</span><br><span class="line">if (!url) &#123;</span><br><span class="line">  console.log(chalk.red(&#39;项目正在构件中。。。&#39;));</span><br><span class="line">  return false;</span><br><span class="line">&#125; </span><br><span class="line">&#x2F;&#x2F; 下载模板</span><br><span class="line">let isSuccess &#x3D; await clone(url, name)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>创建download.js,抛出clone方法,使用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/download-git-repo">download-git-repo</a>拉取模板<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const &#123; promisify &#125; &#x3D; require(&#39;util&#39;); &#x2F;&#x2F; 引入异步</span><br><span class="line">module.exports.clone &#x3D; async function (repo, desc) &#123;</span><br><span class="line">  const download &#x3D; promisify(require(&#39;download-git-repo&#39;)); &#x2F;&#x2F; 异步使用download-git-repo</span><br><span class="line">  const ora &#x3D; require(&#39;ora&#39;); &#x2F;&#x2F; 打印下载进度</span><br><span class="line">  const process &#x3D; ora(&#96;下载中...&#96;);</span><br><span class="line">  process.start();</span><br><span class="line">  &#x2F;&#x2F; 容错处理</span><br><span class="line">  try &#123;</span><br><span class="line">    await download(repo, desc);</span><br><span class="line">    process.succeed(&#39;下载成功！&#39;);</span><br><span class="line">    return true;</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">    process.fail(&#39;下载失败！&#39;);</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>下载完成,打印提示信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">if (isSuccess) &#123;</span><br><span class="line">  log(chalk.green(&#96;</span><br><span class="line">    拉取完成：</span><br><span class="line">    To get Start：</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">      cd $&#123;name&#125;</span><br><span class="line">      npm install 或者 yarn add  下载依赖</span><br><span class="line">      npm run dev</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">      &#96;))</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        log(chalk.red(&#96;</span><br><span class="line">    拉取失败：</span><br><span class="line">    请检查网络或稍后再试</span><br><span class="line">      &#96;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/live2d/autoload.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>hexo添加live2D - 无名草</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="给 hexo 博客添加 live2d，可爱的看板娘！使用官方简单办法
+安装 hexo-helper-live2d 插件
+1$ yarn add hexo-helper-live2d
+安装 live2,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="无名草" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="hexo添加live2D - 无名草"/>
+    <meta name="twitter:description" content="给 hexo 博客添加 live2d，可爱的看板娘！使用官方简单办法
+安装 hexo-helper-live2d 插件
+1$ yarn add hexo-helper-live2d
+安装 live2,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="无名草"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="hexo添加live2D - 无名草"/>
+    <meta property="og:description" content="给 hexo 博客添加 live2d，可爱的看板娘！使用官方简单办法
+安装 hexo-helper-live2d 插件
+1$ yarn add hexo-helper-live2d
+安装 live2,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">无名草</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://gitmrs.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">hexo添加live2D</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo添加live2D</h1>
+        <div class="stuff">
+            <span>十二月 31, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="给-hexo-博客添加-live2d，可爱的看板娘！"><a href="#给-hexo-博客添加-live2d，可爱的看板娘！" class="headerlink" title="给 hexo 博客添加 live2d，可爱的看板娘！"></a>给 hexo 博客添加 live2d，可爱的看板娘！</h2><h3 id="使用官方简单办法"><a href="#使用官方简单办法" class="headerlink" title="使用官方简单办法"></a>使用官方简单办法</h3><ol>
+<li><p>安装 hexo-helper-live2d 插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add hexo-helper-live2d</span><br></pre></td></tr></table></figure></li>
+<li><p>安装 live2d 模型，模型有肯定可供选择具体可以<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">查看</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add live2d-widget-model-shizuku</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 hexo 配置__config.yml 项中新增 live2d 配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">    enable: true</span><br><span class="line">    scriptFrom: local</span><br><span class="line">    pluginRootPath: live2dw&#x2F;</span><br><span class="line">    pluginJsPath: lib&#x2F;</span><br><span class="line">    pluginModelPath: assets&#x2F;</span><br><span class="line">    tagMode: false</span><br><span class="line">    debug: false</span><br><span class="line">    model:</span><br><span class="line">      use: live2d-widget-model-shizuku</span><br><span class="line">    display:</span><br><span class="line">      position: right</span><br><span class="line">      width: 300</span><br><span class="line">      height: 600</span><br><span class="line">    mobile:</span><br><span class="line">      show: true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="根据hexo-theme-diaspora这个主题使用大神定制版的看板娘"><a href="#根据hexo-theme-diaspora这个主题使用大神定制版的看板娘" class="headerlink" title="根据hexo-theme-diaspora这个主题使用大神定制版的看板娘"></a>根据<a target="_blank" rel="noopener" href="https://github.com/Fechin/hexo-theme-diaspora">hexo-theme-diaspora</a>这个主题使用大神定制版的<a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">看板娘</a></h2><h3 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h3><ol>
+<li>找到 themes/diaspora/layout/_partial/head.ejs 头部引入模板,再 head 标签里面引入字体样式，和 live2d 线上 js 即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;font-awesome&#x2F;css&#x2F;font-awesome.min.css&quot;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;stevenjoezhang&#x2F;live2d-widget@latest&#x2F;autoload.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>重启服务，即可</li>
+</ol>
+<h3 id="定制用法"><a href="#定制用法" class="headerlink" title="定制用法"></a>定制用法</h3><ol>
+<li>找到 themes/diaspora/layout/_partial/head.ejs 头部引入模板,再 head 标签里面引入字体样式，本地自己引入配置文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;font-awesome&#x2F;css&#x2F;font-awesome.min.css&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>打开<a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">live2d-widget</a>,将该项目下载下来，修改名字为 live2d 放到<br>/themes/diaspora/source 目录中</li>
+<li>打开/themes/diaspora/source/live2d;文件中的 autoload.js,修改文件 live2d_path<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 注意：live2d_path 参数应使用绝对路径</span><br><span class="line">&#x2F;&#x2F; const live2d_path &#x3D; &quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;stevenjoezhang&#x2F;live2d-widget@latest&#x2F;&quot;;</span><br><span class="line">const live2d_path &#x3D; &quot;&#x2F;live2d&#x2F;&quot;; &#x2F;&#x2F; 此处修改的名字和文件名保持一致！</span><br></pre></td></tr></table></figure></li>
+<li>找到 themes/diaspora/layout/_partial/scripts.ejs 脚本引入模板,在 js 引入列表中添加刚才修改的文件路径,下面 live2d/autoload.js 是新增的！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.gitalk.enable)&#123; %&gt;&lt;%- js([&#39;&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1&#x2F;dist&#x2F;gitalk.min.js&#39;])%&gt;&lt;%&#125;%&gt;</span><br><span class="line">&lt;%- js([&#39;&#x2F;&#x2F;lib.baomitu.com&#x2F;jquery&#x2F;1.8.3&#x2F;jquery.min.js&#39;, &#39;js&#x2F;plugin.js&#39;, &#39;js&#x2F;typed.js&#39;, &#39;js&#x2F;diaspora.js&#39;,&#39;live2d&#x2F;autoload.js&#39;])%&gt;</span><br><span class="line">&lt;%- partial(&#39;photoswipe&#39;) %&gt;</span><br></pre></td></tr></table></figure></li>
+<li>重启服务既可以看到了！</li>
+</ol>
+<h1 id="部分小问题"><a href="#部分小问题" class="headerlink" title="部分小问题"></a>部分小问题</h1><ul>
+<li><p>在<a target="_blank" rel="noopener" href="https://github.com/Fechin/hexo-theme-diaspora">hexo-theme-diaspora</a>这个主题中，看板娘被图片挡住！</p>
+<p>修改/themes/diaspora/source/live2d 下的 waifu.css;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#waifu &#123;</span><br><span class="line">  bottom: -1000px;</span><br><span class="line">  left: 0;</span><br><span class="line">  line-height: 0;</span><br><span class="line">  margin-bottom: -10px;</span><br><span class="line">  position: fixed;</span><br><span class="line">  transform: translateY(3px);</span><br><span class="line">  transition: transform .3s ease-in-out, bottom 3s ease-in-out;</span><br><span class="line">  z-index: 6; &#x2F;&#x2F; 原本是1，修改大于6即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动端不显示</p>
+<p>修改 themes/diaspora/sourcelive2d 下的 autoload.js 文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 此处判断屏幕宽度，大于768显示；注释掉判断就可全部显示</span><br><span class="line">&#x2F;&#x2F; if (screen.width &gt;&#x3D; 768) &#123;</span><br><span class="line">  Promise.all([</span><br><span class="line">    loadExternalResource(live2d_path + &quot;waifu.css&quot;, &quot;css&quot;),</span><br><span class="line">    loadExternalResource(live2d_path + &quot;live2d.min.js&quot;, &quot;js&quot;),</span><br><span class="line">    loadExternalResource(live2d_path + &quot;waifu-tips.js&quot;, &quot;js&quot;)</span><br><span class="line">  ]).then(() &#x3D;&gt; &#123;</span><br><span class="line">    initWidget(&#123;</span><br><span class="line">      waifuPath: live2d_path + &quot;waifu-tips.json&quot;,</span><br><span class="line">      &#x2F;&#x2F;apiPath: &quot;https:&#x2F;&#x2F;live2d.fghrsh.net&#x2F;api&#x2F;&quot;,</span><br><span class="line">      cdnPath: &quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;fghrsh&#x2F;live2d_api&#x2F;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/live2d/autoload.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
